@@ -1,0 +1,6 @@
+{
+  "name": "SmartChain AI",
+  "description": "An AI-powered supply chain dashboard for real-time shipment tracking, delay risk prediction, and route optimization.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": []
+}
