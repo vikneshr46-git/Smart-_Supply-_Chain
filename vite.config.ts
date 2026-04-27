@@ -28,11 +28,22 @@ export default defineConfig(({ mode }) => {
 
       rollupOptions: {
         output: {
-          manualChunks: {
-            reactVendor: ['react', 'react-dom'],
-          }
-        }
-      }
-    }
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react')) {
+                return 'react-vendor';
+              }
+              if (id.includes('firebase')) {
+                return 'firebase';
+              }
+              if (id.includes('chart') || id.includes('recharts')) {
+                return 'charts';
+              }
+              return 'vendor';
+            }
+          },
+        },
+      },
+    },
   };
 });
